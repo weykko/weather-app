@@ -1,6 +1,6 @@
 import { fetchWeatherByCoords } from './api.js';
 import { createWeatherWidget } from './widget.js';
-import { scrollToLatestWidget, setupScrollButtons } from './contoller.js';
+import { scrollToLatestWidget, setupScrollButtons } from './scroll.js';
 
 document.getElementById('show-weather').addEventListener('click', async () => {
     const lat = parseFloat(document.getElementById('latitude').value);
@@ -14,6 +14,7 @@ document.getElementById('show-weather').addEventListener('click', async () => {
     const weatherData = await fetchWeatherByCoords(lat, lon);
     if (weatherData) {
         createWeatherWidget(weatherData, lat, lon);
+        scrollToLatestWidget();
     }
 });
 
@@ -28,8 +29,11 @@ document.getElementById('my-location').addEventListener('click', () => {
         const weatherData = await fetchWeatherByCoords(latitude, longitude);
         if (weatherData) {
             createWeatherWidget(weatherData, latitude, longitude);
+            scrollToLatestWidget();
         }
     }, () => {
         alert('Unable to retrieve your location.');
     });
 });
+
+setupScrollButtons();
