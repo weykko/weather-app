@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .app-container {
+    width: 100%;
+    width: 1440px;
+    padding: 20px;
+  }
+  
+  .input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .widget-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+    /* padding: 10px; */
+  }
+  
+  .weather-widget {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 420px;
+    max-width: 420px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .weather-widget h3 {
+    margin: 0 0 10px;
+  }
+  
+  .weather-widget p {
+    margin: 5px 0;
+  }
+  
+  .map-container {
+    margin-top: 10px;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    width: 400px;
+    height: 300px;
+    border: none;
+  }
+
+
+  

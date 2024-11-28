@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>weather app</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="src/styles/style.css">
 </head>
 <body>
+  <div class="app-container">
+    <div class="input-container">
+      <input type="number" id="latitude" placeholder="Enter latitude (-90 to 90)" min="-90" max="90">
+      <input type="number" id="longitude" placeholder="Enter longitude (-180 to 180)" min="-180" max="180">
+      <button id="show-weather">Show Weather</button>
+      <button id="my-location">My Location</button>
+    </div>
+    <div class="widget-container" id="widget-container"></div>
+    <div class="scroll-controls">
+        <button id="scroll-left">⬅️</button>
+        <button id="scroll-right">➡️</button>
+    </div>
+  </div>
+
+  <script type="module" src="src/index.js"></script>
 </body>
 </html>
