@@ -8,11 +8,11 @@ export function setupScrollButtons() {
 
     document.getElementById('scroll-left').addEventListener('click', () => {
         const widgetWidth = widgetContainer.firstElementChild?.offsetWidth || 0;
-        widgetContainer.scrollLeft -= widgetWidth;
+        widgetContainer.scrollLeft -= widgetWidth + 15;
     });
 
     document.getElementById('scroll-right').addEventListener('click', () => {
         const widgetWidth = widgetContainer.firstElementChild?.offsetWidth || 0;
-        widgetContainer.scrollLeft += widgetWidth;
+        widgetContainer.scrollLeft += widgetWidth + 15;
     });
 }
