@@ -228,8 +228,7 @@ button:hover {
   display: none
 }
 
-/* Не смог реализовать появление после заполнения виджетов
-   Кнопкии используются в логике скрола */
+/* Не смог реализовать появление после заполнения виджетов */
 /* .scroll-controls.overflow {
   display: flex;
   justify-content: space-between;
