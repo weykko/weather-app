@@ -1,7 +1,5 @@
-import { createCoordsApiUrl, createCityApiUrl, fetchWeatherData } from './api.js';
+import { createApiUrl, apiUrlByCoords, fetchWeatherData } from './api.js';
 import { createWeatherWidget } from './widget.js';
-import { scrollToLatestWidget, setupScrollButtons } from './scroll.js';
-import { validateCoords, validateCity } from './validation.js';
 
 const modeButton = document.querySelectorAll(".mode-button");
 const coordsSearch = document.querySelector(".coords-search");
@@ -29,34 +27,12 @@ modeButton.forEach((button) => {
 
 showWeather.addEventListener('click', async () => {
     const activeMode = document.querySelector(".mode-button.active").dataset.mode;
-    let apiUrl = ''
-
-    if (activeMode === "coords") {
-        const lat = parseFloat(latInput.value);
-        const lon = parseFloat(lonInput.value);
-
-        if (!validateCoords(lat, lon)) {
-            alert('Please enter valid latitude and longitude values');
-            return;
-        }
-
-        apiUrl = createCoordsApiUrl(lat, lon)
-    }
-    else {
-        const cityName = cityInput.value.trim()
-
-        if (!validateCity(cityName)){
-            alert('Please enter the city name');
-            return;
-        }
-
-        apiUrl = createCityApiUrl(cityName)
-    }
+    let apiUrl = createApiUrl(activeMode)
+    if(!apiUrl) return;
 
     const weatherData = await fetchWeatherData(apiUrl);
     if (weatherData) {
         createWeatherWidget(weatherData);
-        scrollToLatestWidget();
     }
 });
 
@@ -68,11 +44,10 @@ showLocWeather.addEventListener('click', () => {
 
     navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        const apiUrl = createCoordsApiUrl(latitude, longitude)
+        const apiUrl = apiUrlByCoords(latitude, longitude)
         const weatherData = await fetchWeatherData(apiUrl);
         if (weatherData) {
             createWeatherWidget(weatherData);
-            scrollToLatestWidget();
         }
     }, () => {
         alert('Unable to retrieve your location.');
@@ -96,5 +71,3 @@ lonInput.addEventListener("keydown", (event) => {
         showWeather.click()
     }
 });
-
-setupScrollButtons();

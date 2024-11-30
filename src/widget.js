@@ -1,17 +1,38 @@
 import { generateMap } from './map.js';
+import { scrollToLatestWidget } from './scroll.js';
 
 export function createWeatherWidget(weatherData) {
     const startWidget = document.getElementById('start-widget');
-    if (startWidget) {
-      startWidget.remove();
-    }
+    if (startWidget) startWidget.remove();
 
     const widgetContainer = document.getElementById('widget-container');
     const widget = document.createElement('div');
-    const iconUrl = `./src/assets/weather/${weatherData.weather[0].icon}.png`;
     widget.classList.add('weather-widget');
+    widget.innerHTML = createWidgetHTML(weatherData);
 
-    widget.innerHTML = `
+    const map = generateMap(weatherData.coord.lat, weatherData.coord.lon);
+    widget.appendChild(map);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', () => widget.remove());
+    widget.appendChild(deleteButton);
+
+    widgetContainer.appendChild(widget);
+    setTimeout(() => {
+        widget.classList.add('appear');
+    }, 10);
+
+    if (document.querySelectorAll(".weather-widget").length > 3)
+        widgetContainer.classList.add("overflow");
+
+    scrollToLatestWidget();
+}
+
+function createWidgetHTML(weatherData) {
+    const iconPath = `./src/assets/weather/${weatherData.weather[0].icon}.png`;
+
+    return `
     <div class="weather-data">
         <div class="main-box">
             <h3 class="city-name">${weatherData.name || 'Unknown Location'}</h3>
@@ -26,28 +47,9 @@ export function createWeatherWidget(weatherData) {
             </div>    
         </div>  
         <div class="weather-box">
-            <img class="weather-icon" src=${iconUrl}>
+            <img class="weather-icon" src=${iconPath}>
             <p>${weatherData.weather[0].main}</p>
         </div> 
     </div>     
     `;
-
-    const lat = weatherData.coord.lat
-    const lon = weatherData.coord.lon
-    const map = generateMap(lat, lon);
-    widget.appendChild(map);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.addEventListener('click', () => widget.remove());
-    widget.appendChild(deleteButton);
-
-    widgetContainer.appendChild(widget);
-    setTimeout(() => {
-        widget.classList.add('appear');
-      }, 10);
-
-    if (document.querySelectorAll(".weather-widget").length > 3){
-        widgetContainer.classList.add("overflow");
-    }
 }

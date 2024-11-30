@@ -223,17 +223,3 @@ button:hover {
   width: 408px;
   height: 35px;
 }
-
-.scroll-controls {
-  display: none
-}
-
-/* Не смог реализовать появление после заполнения виджетов */
-/* .scroll-controls.overflow {
-  display: flex;
-  justify-content: space-between;
-}
-
-.scroll-controls button {
-  background-color: #f0f0f0;
-} */

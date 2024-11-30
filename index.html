@@ -4,13 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+  <title>weather app</title>
   <link rel="stylesheet" href="src/styles/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+  <link rel="shortcut icon" href="src/assets/shortcut-icon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -23,18 +19,16 @@
         <button class="mode-button coords" data-mode="coords">
           Coords
         </button>
-        <span class="slider"></span>
       </div>
-      
       <div class="coords-search">
         <input class="coords-search-input" type="number" id="latitude" placeholder="Latitude" min="-90" max="90">
         <input class="coords-search-input" type="number" id="longitude" placeholder="Longitude" min="-180" max="180">
       </div>
       <div class="city-search active">
-        <input class="city-search-input"type="text" id="city-name" placeholder="City name">
+        <input class="city-search-input" type="text" id="city-name" placeholder="City name">
       </div>
       <button class="show-weather" id="show-weather">
-        <img src="/src/assets/find-icon.png" width="30px">
+        <img src="src/assets/find-icon.png" width="30px">
       </button>
       <button class="show-loc-weather" id="show-loc-weather">
         My location
@@ -44,15 +38,11 @@
       <div class="weather-widget start appear" id="start-widget">
         <p>Enter the city name or coordinates to see the weather in this location.</p>
         <p>You can also see the weather in your location.</p>
-        <img src="/src/assets/nerd-face.png">
+        <img src="src/assets/nerd-face.png">
       </div>
     </div>
-    <div class="scroll-controls">
-      <button id="scroll-left">left</button>
-      <button id="scroll-right">right</button>
-    </div>
   </div>
-  
+
   <script type="module" src="src/index.js"></script>
 </body>
 
