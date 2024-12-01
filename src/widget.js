@@ -26,8 +26,7 @@ export function createWeatherWidget(weatherData) {
     widget.classList.add('weather-widget', 'fade-in');
     widget.innerHTML = createWidgetHTML(weatherData);
 
-    const map = generateMap(weatherData.coord.lat, weatherData.coord.lon);
-    widget.appendChild(map);
+    generateMap(widget, weatherData.coord.lat, weatherData.coord.lon)
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
