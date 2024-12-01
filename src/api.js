@@ -12,7 +12,7 @@ export async function fetchWeatherData(apiUrl) {
         return await response.json();
     } catch (error) {
         console.error(error);
-        alert('Error fetching weather data. Please try again.');
+        alert('Error fetching weather data\nYou may have entered the name of the city incorrectly');
     }
 }
 

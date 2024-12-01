@@ -7,6 +7,8 @@
   <title>weather app</title>
   <link rel="stylesheet" href="src/styles/style.css">
   <link rel="shortcut icon" href="src/assets/shortcut-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -35,15 +37,10 @@
       </button>
     </div>
     <div class="widget-container" id="widget-container">
-      <div class="weather-widget start appear" id="start-widget">
-        <p>Enter the city name or coordinates to see the weather in this location.</p>
-        <p>You can also see the weather in your location.</p>
-        <img src="src/assets/nerd-face.png">
-      </div>
     </div>
   </div>
 
-  <script type="module" src="src/index.js"></script>
+  <script type="module" src="./src/index.js"></script>
 </body>
 
 </html>

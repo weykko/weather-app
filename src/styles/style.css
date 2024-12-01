@@ -123,7 +123,7 @@ button:hover {
   justify-content: center;
   overflow-x: auto;
   gap: 15px;
-  height: 762px;
+  height: 782px;
   margin-bottom: 15px;
 }
 
@@ -131,18 +131,18 @@ button:hover {
   justify-content: start;
 }
 
-.weather-widget.start {
+.weather-widget.start-widget {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.weather-widget.start p {
+.weather-widget.start-widget p {
   text-align: center;
   font-size: 20px;
 }
 
-.weather-widget.start img {
+.weather-widget.start-widget img {
   margin-top: 50px;
   width: 100px;
 }
@@ -157,22 +157,6 @@ button:hover {
   height: 732px;
   display: flex;
   flex-direction: column;
-}
-
-.weather-widget {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.weather-widget.appear {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.widget.remove {
-  opacity: 0;
-  transform: translateY(-15px);
 }
 
 .weather-widget h3 {
@@ -206,20 +190,50 @@ button:hover {
 }
 
 .weather-widget p {
+  font-weight: 400;
   margin: 5px 0;
 }
 
 .map-container iframe {
   width: 408px;
   height: 408px;
-  border: none;
+  margin-bottom: 25px;
 }
 
-.weather-widget button {
+.delete-button {
   width: 100px;
   margin: 0;
   margin-left: auto;
-  margin-top: 20px;
   width: 408px;
   height: 35px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weather-widget.fade-in {
+  animation: fadeIn 0.7s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.weather-widget.fade-out {
+  animation: fadeOut 0.5s forwards;
 }

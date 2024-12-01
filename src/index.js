@@ -1,5 +1,5 @@
 import { createApiUrl, apiUrlByCoords, fetchWeatherData } from './api.js';
-import { createWeatherWidget } from './widget.js';
+import { createWeatherWidget, createStartWidget } from './widget.js';
 
 const modeButton = document.querySelectorAll(".mode-button");
 const coordsSearch = document.querySelector(".coords-search");
@@ -9,6 +9,8 @@ const lonInput = document.getElementById('longitude');
 const cityInput = document.getElementById('city-name');
 const showWeather = document.getElementById('show-weather');
 const showLocWeather = document.getElementById('show-loc-weather');
+
+createStartWidget()
 
 modeButton.forEach((button) => {
     button.addEventListener("click", () => {
